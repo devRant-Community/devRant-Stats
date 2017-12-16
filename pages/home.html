@@ -1,0 +1,78 @@
+<div class="content">
+	<div id="header">
+		<span id="header-before" style="background: #{{headerBackground}};"></span>
+		<h1 id="header-title">devRant-Stats</h1>
+		<div id="header-search">
+			<div class="input-group" id="searchbar">
+				<input type="text" id="search" class="form-control" placeholder="Username..." aria-label="Search for user..." maxlength="15" ng-model="search" ng-keypress="onSearchEnter($event)">
+				<span class="input-group-btn">
+					<button class="btn button-red" type="button" ng-click="startSearch()">Go!</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="overall-stats" class="container">
+		<div class="row">
+			<div class="col-xl-6">
+				<div class="card animated fadeInLeft">
+					<div class="card-body">
+						<h4 class="card-title">DevRant++ Members</h4>
+						<p class="card-text stat-number">{{stats.members}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="card animated fadeInRight">
+					<div class="card-body">
+						<h4 class="card-title">Newest DevRant++ Member</h4>
+						<p class="card-text stat-number"><a class="hidden-link" target="_blank" ng-href="https://devrant.com/users/{{stats.newest}}">{{stats.newest}}</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xl-6">
+				<div class="card animated fadeInLeft">
+					<div class="card-body">
+						<h4 class="card-title">Income per Month</h4>
+						<p class="card-text stat-number">{{stats.incomeMonth | currency }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="card animated fadeInRight">
+					<div class="card-body">
+						<h4 class="card-title">Income per Year</h4>
+						<p class="card-text stat-number">{{stats.incomeYear | currency }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xl-6">
+				<div class="card animated fadeInLeft">
+					<div class="card-body">
+						<h4 class="card-title">Sum of Members Score</h4>
+						<p class="card-text stat-number">{{stats.scoreSum}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="card animated fadeInRight">
+					<div class="card-body">
+						<h4 class="card-title">Sum of Members Rants</h4>
+						<p class="card-text stat-number">{{stats.rantsSum}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>Made by <a href="https://devrant.com/users/Skayo" target="_blank">Skayo</a></p>
+	</div>
+</div>

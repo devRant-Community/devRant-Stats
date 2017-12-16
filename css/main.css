@@ -1,0 +1,159 @@
+/*
+
+COLOR PALETTE
+
+Background:
+	Blue: #54556E
+	Dark Blue: #40415A
+
+Text:
+	Normal: #FFFFFF
+	Grey: #C1C1CA
+
+Buttons:
+	Red: #d55161
+	Red-Hover: #c14857
+	Grey: #7b7b7f
+	Grey-Hover: #6a6a6a
+
+Link:
+	Grey: #C1C1CA
+*/
+
+body {
+	font-family: "Comfortaa", sans-serif;
+	color: #fff;
+	background-color: #54556E;
+	min-width: 540px;
+}
+
+a, a:hover, a:active, a:visited {
+	text-decoration: underline;
+	cursor: pointer;
+	color: #C1C1CA;
+	margin: 0px;
+}
+
+.button-red {
+	background-color: #d55161;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color .15s ease-in-out;
+	color: #fff;
+	font-family: "Comfortaa", sans-serif;
+}
+
+.button-red:hover {
+	background-color: #c14857;
+}
+
+.button-grey {
+	background-color: #7b7b7f;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color .15s ease-in-out;
+	color: #fff;
+	font-family: "Comfortaa", sans-serif;
+}
+
+.button-grey:hover {
+	background-color: #6a6a6a;
+}
+
+#header-title {
+	font-size: 85px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#header {
+	position: relative;
+	padding: 90px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	background: url(/images/header-background.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 91;
+	margin-bottom: 36px;
+	border-bottom-color: #40415A;
+	border-bottom-width: 8px;
+	border-bottom-style: solid;
+}
+
+#header-before {
+	content: " ";
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	opacity: 0.66;
+	background: #d55161;
+}
+
+#header-search {
+	text-align: center;
+	margin: 50px auto 0px auto;
+	width: 400px;
+}
+
+#header-search .input-group {
+	height: 45px;
+}
+
+#overall-stats {
+	margin: 0 auto;
+}
+
+.card {
+	background-color: #40415A;
+	padding: 20px;
+	border: none;
+	margin-bottom: 40px;
+	width: 500px;
+}
+
+.card-title {
+	text-align: center;
+	color: #C1C1CA;
+}
+
+.stat-number {
+	font-size: 30px;
+	text-align: center;
+}
+
+#footer {
+	text-align: center;
+}
+
+.hidden-link {
+	color: #fff !important;
+	text-decoration: none !important;
+	cursor: pointer !important;
+}
+
+#avatar {
+	border-radius: 200%;
+	max-width: 120%;
+	height: auto;
+}
+
+.username {
+	margin: auto 0;
+}
+
+.row-spacer {
+	margin-top: 30px;
+	display:block;
+}
+
+.col-centered {
+	margin: 0 auto;
+}
