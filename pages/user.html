@@ -78,7 +78,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Score Rank</h4>
-						<p class="card-text stat-number">{{userinfo.scoreRank}}.</p>
+						<p class="card-text stat-number">{{userinfo.scoreRank | rank}}</p>
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Rant-Count Rank</h4>
-						<p class="card-text stat-number">{{userinfo.rantsRank}}.</p>
+						<p class="card-text stat-number">{{userinfo.rantsRank | rank}}</p>
 					</div>
 				</div>
 			</div>
