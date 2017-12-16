@@ -2,7 +2,7 @@
 var app = angular.module('DevRantStats', ['ngRoute']);
 
 // Routing-Configuration
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$sceProvider', function ($routeProvider, $sceProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'pages/home.html',
@@ -19,4 +19,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
+
+	$sceProvider.enabled(false);
 }]);

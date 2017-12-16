@@ -94,6 +94,41 @@
 
 		<span class="row-spacer"></span>
 
-		
+		<h3 class="stats-title">Other</h3>
+		<div class="row">
+			<div class="col-xl-6">
+				<div class="card animated zoomIn">
+					<div class="card-body">
+						<h4 class="card-title">Latest Rant</h4>
+						<p class="card-text stat-number">
+							<iframe ng-if="userinfo.latest_rant" id="latest-rant" name="latest-rant" ng-src="{{userinfo.latest_rant}}" frameborder="0" height="610" width="100%">iFrame not supported.</iframe>
+							<span ng-if="!userinfo.latest_rant">{{userinfo.latest_rant_error}}</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="row h-100">
+					<div class="col-xl-7">
+						<div class="card animated zoomIn">
+							<div class="card-body">
+								<h4 class="card-title">Live Score</h4>
+								<p class="card-text stat-number">{{liveScore}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-7">
+						<div class="card animated zoomIn">
+							<div class="card-body">
+								<h4 class="card-title">Big Avatar</h4>
+								<p class="card-text stat-number">
+									<img ng-src="https://avatars.devrant.com/{{userinfo.avatar_big_url}}" alt="Big Avatar" class="img-fluid rounded">
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
