@@ -15,7 +15,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		rantsRank: "Loading..."
 	};
 
-	$http.get('http://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
+	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
 			$scope.userinfo = response.data.userinfo;
 			console.log(response);
