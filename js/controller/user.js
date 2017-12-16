@@ -18,11 +18,9 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
 			$scope.userinfo = response.data.userinfo;
-			console.log(response);
 		} else {
 			if(response.data.reason == "User not found") {
-				alert("User not found!");
-				$location.path("/");
+				$location.path("/userNotFound");
 			} else {
 				$scope.userinfo = {
 					devrant_id: 0,

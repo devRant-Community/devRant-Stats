@@ -12,6 +12,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'pages/user.html',
 			controller: 'UserController'
 		})
+		.when('/userNotFound', {
+			templateUrl: 'pages/userNotFound.html',
+			controller: 'NotFoundController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
