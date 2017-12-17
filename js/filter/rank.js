@@ -2,12 +2,13 @@ app.filter('rank', function() {
 	return function(input) {
 		if(!isNaN(input)) {
 			input = parseInt(input);
-
-			if(input == 1) {
+			var lastDigit = input % 10;
+			
+			if(lastDigit == 1) {
 				return input + "st";
-			} else if(input == 2) {
+			} else if (lastDigit == 2) {
 				return input + "nd";
-			} else if(input == 3) {
+			} else if (lastDigit == 3) {
 				return input + "rd";
 			} else {
 				return input + "th";
