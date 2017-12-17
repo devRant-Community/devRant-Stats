@@ -28,7 +28,6 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 			if (typeof (EventSource) !== 'undefined') {
 				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveScore.php?userid=" + $scope.userinfo.devrant_id);
 				source.onmessage = function (event) {
-					console.log(event.data);
 					$scope.$apply(function () {
 						$scope.liveScore = event.data;
 					});
