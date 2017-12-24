@@ -6,7 +6,9 @@
 				<img ng-if="userinfo.avatar_url" ng-src="https://avatars.devrant.com/{{userinfo.avatar_url}}" alt="User Avatar" id="avatar">
 			</div>
 			<div class="col username">
-				<h1 id="header-title">{{userinfo.username}}</h1>
+				<h1 id="header-title">
+					<a class="hidden-link" target="_blank" ng-href="https://devrant.com/users/{{userinfo.username}}">{{userinfo.username}}</a>
+				</h1>
 			</div>
 		</div>
 	</div>
@@ -101,7 +103,8 @@
 				<p class="card-text">
 					<div class="char-container" style="position: relative; width: 100%;">
 						<p ng-if="!dataTotal" class="card-text stat-number">{{dataError}}</p>
-						<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries" chart-options="chartOptions"></canvas>
+						<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries"
+						 chart-options="chartOptions"></canvas>
 					</div>
 				</p>
 			</div>
@@ -112,7 +115,8 @@
 				<p class="card-text stat-number">
 					<div class="char-container" style="position: relative; width: 100%;">
 						<p ng-if="!dataDaily" class="card-text stat-number">{{dataError}}</p>
-						<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries" chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
+						<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries"
+						 chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
 					</div>
 				</p>
 			</div>
@@ -127,7 +131,8 @@
 					<div class="card-body">
 						<h4 class="card-title">Latest Rant</h4>
 						<p class="card-text stat-number">
-							<iframe ng-if="userinfo.latest_rant" id="latest-rant" name="latest-rant" ng-src="{{userinfo.latest_rant}}" frameborder="0" height="610" width="100%">iFrame not supported.</iframe>
+							<iframe ng-if="userinfo.latest_rant" id="latest-rant" name="latest-rant" ng-src="{{userinfo.latest_rant}}" frameborder="0"
+							 height="610" width="100%">iFrame not supported.</iframe>
 							<span ng-if="!userinfo.latest_rant">{{userinfo.latest_rant_error}}</span>
 						</p>
 					</div>
