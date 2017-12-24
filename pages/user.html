@@ -94,6 +94,32 @@
 
 		<span class="row-spacer"></span>
 
+		<h3 class="stats-title">Graphs</h3>
+		<div class="card animated zoomIn graph-box">
+			<div class="card-body">
+				<h4 class="card-title">Total</h4>
+				<p class="card-text">
+					<div class="char-container" style="position: relative; width: 100%;">
+						<p ng-if="!dataTotal" class="card-text stat-number">{{dataError}}</p>
+						<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries" chart-options="chartOptions"></canvas>
+					</div>
+				</p>
+			</div>
+		</div>
+		<div class="card animated zoomIn graph-box">
+			<div class="card-body">
+				<h4 class="card-title">Daily</h4>
+				<p class="card-text stat-number">
+					<div class="char-container" style="position: relative; width: 100%;">
+						<p ng-if="!dataDaily" class="card-text stat-number">{{dataError}}</p>
+						<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries" chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
+					</div>
+				</p>
+			</div>
+		</div>
+
+		<span class="row-spacer"></span>
+
 		<h3 class="stats-title">Other</h3>
 		<div class="row">
 			<div class="col-xl-6">

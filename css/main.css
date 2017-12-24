@@ -154,6 +154,14 @@ a, a:hover, a:active, a:visited {
 	display:block;
 }
 
+.graph-box {
+	width: 96.5%;
+}
+
+.stats-chart {
+	background-color: #40415A;
+}
+
 .col-centered {
 	margin: 0 auto;
 }
