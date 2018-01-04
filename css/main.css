@@ -154,7 +154,7 @@ a, a:hover, a:active, a:visited {
 	display:block;
 }
 
-.graph-box {
+.graph-box, .table-box {
 	width: 96.5%;
 }
 
@@ -164,4 +164,12 @@ a, a:hover, a:active, a:visited {
 
 .col-centered {
 	margin: 0 auto;
+}
+
+.table td, .table th {
+	border-top: none;
+}
+
+.text-grey {
+	color: #868e96;
 }

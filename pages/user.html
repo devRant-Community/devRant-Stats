@@ -20,7 +20,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Score</h4>
-						<p class="card-text stat-number">{{userinfo.score}}</p>
+						<p class="card-text stat-number">{{userinfo.score | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -28,7 +28,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Rants</h4>
-						<p class="card-text stat-number">{{userinfo.rants}}</p>
+						<p class="card-text stat-number">{{userinfo.rants | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Comments</h4>
-						<p class="card-text stat-number">{{userinfo.comments}}</p>
+						<p class="card-text stat-number">{{userinfo.comments | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Favorites</h4>
-						<p class="card-text stat-number">{{userinfo.favorites}}</p>
+						<p class="card-text stat-number">{{userinfo.favorites | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Upvoted</h4>
-						<p class="card-text stat-number">{{userinfo.upvoted}}</p>
+						<p class="card-text stat-number">{{userinfo.upvoted | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Collabs</h4>
-						<p class="card-text stat-number">{{userinfo.collabs}}</p>
+						<p class="card-text stat-number">{{userinfo.collabs | number}}</p>
 					</div>
 				</div>
 			</div>
@@ -100,25 +100,49 @@
 		<div class="card animated zoomIn graph-box">
 			<div class="card-body">
 				<h4 class="card-title">Total</h4>
-				<p class="card-text">
-					<div class="char-container" style="position: relative; width: 100%;">
-						<p ng-if="!dataTotal" class="card-text stat-number">{{dataError}}</p>
-						<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries"
-						 chart-options="chartOptions"></canvas>
-					</div>
-				</p>
+				<div class="card-text char-container" style="position: relative; width: 100%;">
+					<p ng-if="!dataTotal" class="stat-number">{{dataError}}</p>
+					<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries"
+						chart-options="chartOptions"></canvas>
+				</div>
 			</div>
 		</div>
 		<div class="card animated zoomIn graph-box">
 			<div class="card-body">
 				<h4 class="card-title">Daily</h4>
-				<p class="card-text stat-number">
-					<div class="char-container" style="position: relative; width: 100%;">
-						<p ng-if="!dataDaily" class="card-text stat-number">{{dataError}}</p>
-						<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries"
-						 chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
-					</div>
-				</p>
+				<div class="card-text char-container" style="position: relative; width: 100%;">
+					<p ng-if="!dataDaily" class="stat-number">{{dataError}}</p>
+					<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries"
+						chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<span class="row-spacer"></span>
+
+		<h3 class="stats-title">Tables</h3>
+		<div class="card animated zoomIn table-box">
+			<div class="card-body">
+				<h4 class="card-title">Future projections</h4>
+				<div class="card-text table-responsive">
+					<p ng-if="!dataFuture" class="stat-number" ng-bind-html="dataError"></p>
+					<table ng-if="dataFuture" class="table">
+						<thead>
+							<tr>
+								<th scope="col">Goal Date</th>
+								<th scope="col">Time until</th>
+								<th scope="col">Score prediction</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="data in dataFuture">
+								<td>{{data.date}}</td>
+								<td ng-class="(data.time != '-- NOW --') ? 'text-success' : 'text-grey'">{{data.time}}</td>
+								<td>{{data.score | number}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 
@@ -130,7 +154,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Latest Rant</h4>
-						<p class="card-text stat-number">
+						<p class="card-text text-center">
 							<iframe ng-if="userinfo.latest_rant" id="latest-rant" name="latest-rant" ng-src="{{userinfo.latest_rant}}" frameborder="0"
 							 height="610" width="100%">iFrame not supported.</iframe>
 							<span ng-if="!userinfo.latest_rant">{{userinfo.latest_rant_error}}</span>
@@ -144,7 +168,7 @@
 						<div class="card animated zoomIn">
 							<div class="card-body">
 								<h4 class="card-title">Live Score</h4>
-								<p class="card-text stat-number">{{liveScore}}</p>
+								<p class="card-text stat-number">{{liveScore | number}}</p>
 							</div>
 						</div>
 					</div>
@@ -152,7 +176,7 @@
 						<div class="card animated zoomIn">
 							<div class="card-body">
 								<h4 class="card-title">Big Avatar</h4>
-								<p class="card-text stat-number">
+								<p class="card-text text-center">
 									<img ng-src="https://avatars.devrant.com/{{userinfo.avatar_big_url}}" alt="Big Avatar" class="img-fluid rounded">
 								</p>
 							</div>

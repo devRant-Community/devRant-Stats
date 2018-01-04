@@ -23,6 +23,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	
 	$scope.dataTotal = false;
 	$scope.dataDaily = false;
+	$scope.dataFuture = false;
 	$scope.dataError = "Loading...";
 	
 	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
@@ -59,11 +60,18 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 				if(response.data.success) {
 					$scope.dataTotal = response.data.stats.total;
 					$scope.dataDaily = response.data.stats.daily;
+					$scope.dataFuture = response.data.stats.future;
 					$scope.dataError = "";
+
+					if(typeof($scope.dataFuture) == "string") {
+						$scope.dataError = angular.copy($scope.dataFuture);
+						$scope.dataFuture = false;
+					}
 				} else {
 					$scope.dataError = "No data";
 					$scope.dataTotal = false;
 					$scope.dataDaily = false;
+					$scope.dataFuture = false;
 				}
 			});
 		} else {
