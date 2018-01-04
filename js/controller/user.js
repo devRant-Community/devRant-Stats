@@ -3,16 +3,10 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	$scope.userinfo = {
 		devrant_id: 0,
 		username: "Loading...",
-		start_time: 0,
+		start_time: false,
 		avatar_url: "",
 		avatar_big_url: "",
 		avatar_bg: "d55161",
-		score: "Loading...",
-		rants: "Loading...",
-		comments: "Loading...",
-		favorites: "Loading...",
-		upvoted: "Loading...",
-		collabs: "Loading...",
 		scoreRank: "Loading...",
 		rantsRank: "Loading...",
 		latest_rant: "",
@@ -20,6 +14,14 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	};
 
 	$scope.liveScore = "Please Wait...";
+	$scope.liveData = {
+		score: "Loading...",
+		rants: "Loading...",
+		comments: "Loading...",
+		favorites: "Loading...",
+		upvoted: "Loading...",
+		collabs: "Loading..."
+	};
 	
 	$scope.dataTotal = false;
 	$scope.dataDaily = false;
@@ -29,16 +31,24 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
 			$scope.userinfo = response.data.userinfo;
+			
 
 			if (typeof (EventSource) !== 'undefined') {
-				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveScore.php?userid=" + $scope.userinfo.devrant_id);
+				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveData.php?userid=" + $scope.userinfo.devrant_id);
 				source.onmessage = function (event) {
 					$scope.$apply(function () {
-						$scope.liveScore = event.data;
+						$scope.liveData = JSON.parse(event.data);
 					});
 				};
 			} else {
-				$scope.liveScore = "Not supported";
+				$scope.liveData = {
+					score: response.data.userinfo.score, // Score gets sent with other API call, so use it.
+					rants: response.data.userinfo.rants, // Rants too.
+					comments: "Live Events not supported.", // Use a better fucking browser, asshole.
+					favorites: "Live Events not supported.", 
+					upvoted: "Live Events not supported.", 
+					collabs: "Live Events not supported."
+				};
 			}
 
 			$http.get('https://devrant.com/api/users/' + $scope.userinfo.devrant_id + '?app=3').then(function(response){				
@@ -81,16 +91,10 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 				$scope.userinfo = {
 					devrant_id: 0,
 					username: "Error",
-					start_time: 0,
+					start_time: false,
 					avatar_url: "",
 					avatar_big_url: "",
 					avatar_bg: "d55161",
-					score: "Error",
-					rants: "Error",
-					comments: "Error",
-					favorites: "Error",
-					upvoted: "Error",
-					collabs: "Error",
 					scoreRank: "Error",
 					rantsRank: "Error",
 					latest_rant: "",

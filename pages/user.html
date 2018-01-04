@@ -20,7 +20,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Score</h4>
-						<p class="card-text stat-number">{{userinfo.score | number}}</p>
+						<p class="card-text stat-number">{{liveData.score | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -28,7 +28,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Rants</h4>
-						<p class="card-text stat-number">{{userinfo.rants | number}}</p>
+						<p class="card-text stat-number">{{liveData.rants | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Comments</h4>
-						<p class="card-text stat-number">{{userinfo.comments | number}}</p>
+						<p class="card-text stat-number">{{liveData.comments | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Favorites</h4>
-						<p class="card-text stat-number">{{userinfo.favorites | number}}</p>
+						<p class="card-text stat-number">{{liveData.favorites | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Upvoted</h4>
-						<p class="card-text stat-number">{{userinfo.upvoted | number}}</p>
+						<p class="card-text stat-number">{{liveData.upvoted | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 				<div class="card animated zoomIn">
 					<div class="card-body">
 						<h4 class="card-title">Collabs</h4>
-						<p class="card-text stat-number">{{userinfo.collabs | number}}</p>
+						<p class="card-text stat-number">{{liveData.collabs | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
@@ -167,8 +167,9 @@
 					<div class="col-xl-7">
 						<div class="card animated zoomIn">
 							<div class="card-body">
-								<h4 class="card-title">Live Score</h4>
-								<p class="card-text stat-number">{{liveScore | number}}</p>
+								<h4 class="card-title">Devrant++ Member since</h4>
+								<p class="card-text stat-number" ng-if="userinfo.start_time">{{userinfo.start_time * 1000 | date:'mediumDate'}}</p>
+
 							</div>
 						</div>
 					</div>
