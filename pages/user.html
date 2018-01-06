@@ -24,7 +24,8 @@
 							<a ng-click="fullscreenScore()" title="Fullscreen">
 								<span class="float-right">
 									<svg id="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-										<path d="M14 18l10-7.088-10-6.912v3.042s-11.618 2.583-14 12.958c5.072-5.431 14-5.218 14-5.218v3.218z" fill="#C1C1CA"/>
+										<path d="M14 18l10-7.088-10-6.912v3.042s-11.618 2.583-14 12.958c5.072-5.431 14-5.218 14-5.218v3.218z"
+										      fill="#C1C1CA" />
 									</svg>
 								</span>
 							</a>
@@ -111,8 +112,12 @@
 				<h4 class="card-title">Total</h4>
 				<div class="card-text char-container" style="position: relative; width: 100%;">
 					<p ng-if="!dataTotal" class="stat-number">{{dataError}}</p>
-					<canvas ng-if="dataTotal" class="chart chart-line stats-chart" chart-data="dataTotal" chart-labels="labels" chart-series="chartSeries"
-						chart-options="chartOptions"></canvas>
+					<canvas ng-if="dataTotal"
+					        class="chart chart-line stats-chart"
+					        chart-data="dataTotal"
+					        chart-labels="labels"
+					        chart-series="chartSeries"
+					        chart-options="chartOptions"></canvas>
 				</div>
 			</div>
 		</div>
@@ -121,8 +126,13 @@
 				<h4 class="card-title">Daily</h4>
 				<div class="card-text char-container" style="position: relative; width: 100%;">
 					<p ng-if="!dataDaily" class="stat-number">{{dataError}}</p>
-					<canvas ng-if="dataDaily" class="chart chart-line stats-chart" chart-data="dataDaily" chart-labels="labels" chart-series="chartSeries"
-						chart-options="chartOptions_daily" chart-dataset-override="datasetOverride"></canvas>
+					<canvas ng-if="dataDaily"
+					        class="chart chart-line stats-chart"
+					        chart-data="dataDaily"
+					        chart-labels="labels"
+					        chart-series="chartSeries"
+					        chart-options="chartOptions_daily"
+					        chart-dataset-override="datasetOverride"></canvas>
 				</div>
 			</div>
 		</div>
@@ -137,18 +147,18 @@
 					<p ng-if="!dataFuture" class="stat-number" ng-bind-html="dataError"></p>
 					<table ng-if="dataFuture" class="table">
 						<thead>
-							<tr>
-								<th scope="col">Goal Date</th>
-								<th scope="col">Time until</th>
-								<th scope="col">Score prediction</th>
-							</tr>
+						<tr>
+							<th scope="col">Goal Date</th>
+							<th scope="col">Time until</th>
+							<th scope="col">Score prediction</th>
+						</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="data in dataFuture">
-								<td>{{data.date}}</td>
-								<td ng-class="(data.time != '-- NOW --') ? 'text-success' : 'text-grey'">{{data.time}}</td>
-								<td>{{data.score | number}}</td>
-							</tr>
+						<tr ng-repeat="data in dataFuture">
+							<td>{{data.date}}</td>
+							<td ng-class="(data.time != '-- NOW --') ? 'text-success' : 'text-grey'">{{data.time}}</td>
+							<td>{{data.score | number}}</td>
+						</tr>
 						</tbody>
 					</table>
 				</div>
@@ -165,7 +175,8 @@
 						<h4 class="card-title">Latest Rant</h4>
 						<p class="card-text text-center">
 							<iframe ng-if="userinfo.latest_rant" id="latest-rant" name="latest-rant" ng-src="{{userinfo.latest_rant}}" frameborder="0"
-							 height="610" width="100%">iFrame not supported.</iframe>
+							        height="610" width="100%">iFrame not supported.
+							</iframe>
 							<span ng-if="!userinfo.latest_rant">{{userinfo.latest_rant_error}}</span>
 						</p>
 					</div>
@@ -195,5 +206,37 @@
 				</div>
 			</div>
 		</div>
+		<div class="card animated zoomIn devbanner-box">
+			<div class="card-body">
+				<h4 class="card-title">DevBanner</h4>
+				<div class="card-text text-center">
+
+
+					<div class="row">
+						<div class="col-md-9 col-centered">
+							<img ng-src="https://generator.devBanner.center/banner?username={{devBanner.username}}&subtext={{devBanner.subtext}}"
+							     alt="devBanner"
+							     class="img-fluid rounded">
+						</div>
+						<div class="col-md-9 col-centered" id="bannerInput">
+							<div class="input-group">
+								<input type="text"
+								       id="bannerSubtext"
+								       class="form-control"
+								       placeholder="Subtext..."
+								       aria-label="Enter subtext for banner..."
+								       ng-model="devBanner.subtextInput"
+								       ng-keyup="updateBanner()">
+								<span class="input-group-btn">
+									<a class="btn button-red hidden-link" id="bannerDownload" title="Download Banner" download="banner.png" href="https://generator.devBanner.center/banner?username={{devBanner.username}}&subtext={{devBanner.subtext}}">Download</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
 </div>

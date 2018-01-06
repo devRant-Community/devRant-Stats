@@ -154,7 +154,7 @@ a, a:hover, a:active, a:visited {
 	display:block;
 }
 
-.graph-box, .table-box {
+.graph-box, .table-box, .devbanner-box {
 	width: 96.5%;
 }
 
@@ -215,4 +215,12 @@ a, a:hover, a:active, a:visited {
 
 #backBtn > span {
 	vertical-align: 2px;
+}
+
+#bannerInput {
+	margin-top: 20px ;
+}
+
+#bannerSubtext {
+	margin-top: -1px;
 }

@@ -3,6 +3,10 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		$location.path($location.path() + "/fullscreenScore");
 	};
 
+	$scope.updateBanner = function() {
+		$scope.devBanner.subtext = $scope.devBanner.subtextInput;
+	};
+
 	$scope.userinfo = {
 		devrant_id: 0,
 		username: "Loading...",
@@ -29,11 +33,19 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 	$scope.dataDaily = false;
 	$scope.dataFuture = false;
 	$scope.dataError = "Loading...";
+
+	$scope.devBanner = {
+		username: "",
+		subtext: "",
+		subtextInput: ""
+	};
 	
 	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
 			$scope.userinfo = response.data.userinfo;
-			
+
+			$scope.devBanner.username = response.data.userinfo.username;
+			$scope.devBanner.subtext = "Score:  " + response.data.userinfo.score;
 
 			if (typeof (EventSource) !== 'undefined') {
 				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveData.php?userid=" + $scope.userinfo.devrant_id);

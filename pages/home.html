@@ -4,7 +4,14 @@
 		<h1 id="header-title">devRant-Stats</h1>
 		<div id="header-search">
 			<div class="input-group" id="searchbar">
-				<input type="text" id="search" class="form-control" placeholder="Username..." aria-label="Search for user..." maxlength="15" ng-model="search" ng-keypress="onSearchEnter($event)">
+				<input type="text"
+				       id="search"
+				       class="form-control"
+				       placeholder="Username..."
+				       aria-label="Search for user..."
+				       maxlength="15"
+				       ng-model="search"
+				       ng-keypress="onSearchEnter($event)">
 				<span class="input-group-btn">
 					<button class="btn button-red" type="button" ng-click="startSearch()">Go!</button>
 				</span>
@@ -27,7 +34,8 @@
 				<div class="card animated fadeInRight">
 					<div class="card-body">
 						<h4 class="card-title">Newest DevRant++ Member</h4>
-						<p class="card-text stat-number"><a class="hidden-link" target="_blank" ng-href="https://devrant.com/users/{{stats.newest}}">{{stats.newest}}</a></p>
+						<p class="card-text stat-number"><a class="hidden-link" target="_blank" ng-href="https://devrant.com/users/{{stats.newest}}">{{stats.newest}}</a>
+						</p>
 					</div>
 				</div>
 			</div>
