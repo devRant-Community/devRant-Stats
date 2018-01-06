@@ -1,6 +1,5 @@
 app.controller('FullscreenScoreController', function ($scope, $location, $routeParams, $http) {
 	$scope.goBack = function() {
-		angular.element(document).find('body').css('background-color', '#54556E');
 		$location.path($location.path().replace("fullscreenScore", ""));
 	};
 
@@ -34,5 +33,9 @@ app.controller('FullscreenScoreController', function ($scope, $location, $routeP
 				}
 			}
 		}
+	});
+
+	$scope.$on('$locationChangeStart', function() {
+		angular.element(document).find('body').css('background-color', '#54556E');
 	});
 });
