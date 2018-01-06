@@ -1,5 +1,5 @@
 // Create angular module
-var app = angular.module('DevRantStats', ['ngRoute', 'chart.js']);
+var app = angular.module('DevRantStats', ['ngRoute', 'chart.js', 'ui.odometer']);
 
 // Routing-Configuration
 app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', function ($routeProvider, $sceProvider, ChartJsProvider) {

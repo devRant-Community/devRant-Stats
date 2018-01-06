@@ -10,7 +10,7 @@
 	<div class="card fullscreen-card animated zoomIn">
 		<div class="card-body">
 			<h4 class="card-title">{{username}}'s Score</h4>
-			<p class="card-text stat-number">{{liveData.score | numberIfType}}</p>
+			<div class="card-text stat-number" odometer="liveData.score" odometer-options="odometerOptions"></div>
 		</div>
 	</div>
 </div>

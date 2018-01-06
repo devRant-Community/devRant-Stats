@@ -40,4 +40,9 @@ app.controller('FullscreenScoreController', function ($scope, $location, $routeP
 	$scope.$on('$locationChangeStart', function() {
 		angular.element(document).find('body').css('background-color', '#54556E');
 	});
+
+	$scope.odometerOptions = {
+		theme: 'minimal',
+		duration: 1000
+	};
 });
