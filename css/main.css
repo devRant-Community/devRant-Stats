@@ -182,6 +182,7 @@ a, a:hover, a:active, a:visited {
 .fullscreen-card {
 	width: inherit;
 	margin-top: 15vh;
+	min-width: 519px;
 }
 
 #fullscreenScore .card-body {
