@@ -1,4 +1,7 @@
-app.controller('UserController', function ($scope, $location, $routeParams, $http, $timeout) {
+app.controller('UserController', function ($scope, $location, $routeParams, $http, $filter) {
+	$scope.fullscreenScore = function() {
+		$location.path($location.path() + "/fullscreenScore");
+	};
 
 	$scope.userinfo = {
 		devrant_id: 0,
@@ -13,7 +16,6 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		latest_rant_error: ""
 	};
 
-	$scope.liveScore = "Please Wait...";
 	$scope.liveData = {
 		score: "Loading...",
 		rants: "Loading...",
@@ -132,7 +134,13 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		},
 		tooltips: {
 			mode: 'index',
-			intersect: false
+			intersect: false,
+			callbacks: {
+				label: function(tooltipItem, data) {
+					var name = data.datasets[tooltipItem.datasetIndex].label + ': ';
+					return name + '+' + $filter('number')(tooltipItem.yLabel);
+				}
+			}
 		}
 	};
 	
@@ -150,7 +158,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		label: function(tooltipItem, data) {
 			var name = data.datasets[tooltipItem.datasetIndex].label + ': ';
 			if(tooltipItem.yLabel > 0) {
-				return name + '+' + tooltipItem.yLabel;
+				return name + '+' + $filter('number')(tooltipItem.yLabel);
 			}
 
 			return name + tooltipItem.yLabel;

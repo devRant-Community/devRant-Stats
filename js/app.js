@@ -16,6 +16,10 @@ app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', function ($rout
 			templateUrl: 'pages/userNotFound.html',
 			controller: 'NotFoundController'
 		})
+		.when('/user/:username/fullscreenScore', {
+			templateUrl: 'pages/fullscreenScore.html',
+			controller: 'FullscreenScoreController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

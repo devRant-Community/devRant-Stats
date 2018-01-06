@@ -173,3 +173,45 @@ a, a:hover, a:active, a:visited {
 .text-grey {
 	color: #868e96;
 }
+
+#fullscreenScore {
+	background-color: #40415A;
+	padding: 20px;
+}
+
+.fullscreen-card {
+	width: inherit;
+	margin-top: 15vh;
+}
+
+#fullscreenScore .card-body {
+	margin: auto 0;
+}
+
+#fullscreenScore .card-title {
+	font-size: 50px;
+}
+
+#fullscreenScore .stat-number {
+	font-size: 150px;
+}
+
+@media only screen and (min-width: 900px) {
+	#fullscreenScore .card-title {
+		font-size: 100px;
+	}
+
+	#fullscreenScore .stat-number {
+		font-size: 300px;
+	}
+}
+
+#backBtn {
+	color: #C1C1CA !important;
+	font-size: 25px;
+	vertical-align: middle;
+}
+
+#backBtn > span {
+	vertical-align: 2px;
+}

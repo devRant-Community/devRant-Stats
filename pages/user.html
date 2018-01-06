@@ -19,8 +19,17 @@
 			<div class="col-xl-6">
 				<div class="card animated zoomIn">
 					<div class="card-body">
-						<h4 class="card-title">Score</h4>
-						<p class="card-text stat-number">{{liveData.score | numberIfType}}</p>
+						<h4 class="card-title">
+							Score
+							<a ng-click="fullscreenScore()" title="Fullscreen">
+								<span class="float-right">
+									<svg id="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+										<path d="M14 18l10-7.088-10-6.912v3.042s-11.618 2.583-14 12.958c5.072-5.431 14-5.218 14-5.218v3.218z" fill="#C1C1CA"/>
+									</svg>
+								</span>
+							</a>
+						</h4>
+						<p class="card-text stat-number" id="fullscreenScoreNum">{{liveData.score | numberIfType}}</p>
 					</div>
 				</div>
 			</div>
