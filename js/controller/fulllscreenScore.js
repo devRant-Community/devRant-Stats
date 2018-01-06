@@ -13,6 +13,8 @@ app.controller('FullscreenScoreController', function ($scope, $location, $routeP
 
 	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
+			$scope.username = response.data.userinfo.username;
+
 			if (typeof (EventSource) !== 'undefined') {
 				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveData.php?userid=" + response.data.userinfo.devrant_id);
 				source.onmessage = function (event) {
