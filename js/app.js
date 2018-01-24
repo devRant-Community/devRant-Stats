@@ -2,7 +2,7 @@
 var app = angular.module('DevRantStats', ['ngRoute', 'chart.js', 'ui.odometer']);
 
 // Routing-Configuration
-app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', function ($routeProvider, $sceProvider, ChartJsProvider) {
+app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', '$locationProvider', function ($routeProvider, $sceProvider, ChartJsProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'pages/home.html',
@@ -33,4 +33,6 @@ app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', function ($rout
 			defaultFontFamily: "'Comfortaa', sans-serif"
 		}
 	})
+
+	$locationProvider.html5Mode(true);
 }]);
