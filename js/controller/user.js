@@ -177,7 +177,27 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		}
 	};
 
-	$scope.datasetOverride = [
+	$scope.datasetOverride_total = [
+		{
+		},
+		{
+			hidden: true
+		},
+		{
+			hidden: true
+		},
+		{
+			hidden: true
+		},
+		{
+			hidden: true
+		},
+		{
+			hidden: true
+		}
+	];
+
+	$scope.datasetOverride_daily = [
 		{
 			lineTension: 0.1,
 			fill: false
@@ -198,5 +218,9 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 			lineTension: 0.1,
 			fill: false
 		},
-	]
+		{
+			lineTension: 0.1,
+			fill: false
+		}
+	];
 });
