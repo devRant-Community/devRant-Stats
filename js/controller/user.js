@@ -40,7 +40,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		subtextInput: ""
 	};
 	
-	$http.get('https://skayo.2ix.at/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
+	$http.get('https://skayo.2ix.de/DevRantStats/api/getUserInfo.php?username=' + $routeParams.username).then(function(response) {
 		if (response.data.success) {
 			$scope.userinfo = response.data.userinfo;
 
@@ -48,7 +48,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 			$scope.devBanner.subtext = "Score:  " + response.data.userinfo.score;
 
 			if (typeof (EventSource) !== 'undefined') {
-				var source = new EventSource("https://skayo.2ix.at/DevRantStats/api/liveData.php?userid=" + $scope.userinfo.devrant_id);
+				var source = new EventSource("https://skayo.2ix.de/DevRantStats/api/liveData.php?userid=" + $scope.userinfo.devrant_id);
 				source.onmessage = function (event) {
 					$scope.$apply(function () {
 						$scope.liveData = JSON.parse(event.data);
@@ -80,7 +80,7 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 				}
 			});
 
-			$http.get('https://skayo.2ix.at/DevRantStats/api/getUserStats.php?id=' + $scope.userinfo.devrant_id).then(function(response) {
+			$http.get('https://skayo.2ix.de/DevRantStats/api/getUserStats.php?id=' + $scope.userinfo.devrant_id).then(function(response) {
 				if(response.data.success) {
 					$scope.dataTotal = response.data.stats.total;
 					$scope.dataDaily = response.data.stats.daily;
