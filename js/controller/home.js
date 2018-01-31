@@ -12,7 +12,7 @@ app.controller('HomeController', function ($scope, $location, $http) {
 		rantsSum: "Loading..."
 	}
 
-	$http.get('https://skayo.2ix.de/DevRantStats/api/getHomepageStats.php').then(function (response) {
+	$http.get('https://skayo.2ix.de/api/getHomepageStats.php').then(function (response) {
 		if(response.data.success) {
 			$scope.stats = response.data.stats;
 		} else {
