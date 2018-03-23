@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$sceProvider', 'ChartJsProvider', '$locationProvi
 			templateUrl: 'pages/user.html',
 			controller: 'UserController'
 		})
-		.when('/userNotFound', {
+		.when('/userNotFound/:username', {
 			templateUrl: 'pages/userNotFound.html',
 			controller: 'NotFoundController'
 		})

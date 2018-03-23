@@ -7,10 +7,60 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 		$scope.devBanner.subtext = $scope.devBanner.subtextInput;
 	};
 
+	$scope.getTotalScore = function () {
+		var startScore = $scope.dataTotal[0][0].y;
+		var endScore = $scope.dataTotal[0][$scope.dataTotal[0].length-1].y;
+		return endScore - startScore;
+	};
+
+	$scope.getTotalRants = function () {
+		var startRants = $scope.dataTotal[1][0].y;
+		var endRants = $scope.dataTotal[1][$scope.dataTotal[1].length-1].y;
+		return endRants - startRants;
+	};
+
+	$scope.mostLikesInOneDay = function () {
+		var likesData = [];
+		for(var i = 0; i < $scope.dataDaily[0].length; i++) {
+			likesData[i] = $scope.dataDaily[0][i].y;
+		}
+
+		return likesData.reduce(function(a, b) {
+			return Math.max(a, b);
+		});
+	};
+
+	$scope.mostRantsInOneDay = function () {
+		var rantsData = [];
+		for(var i = 0; i < $scope.dataDaily[1].length; i++) {
+			rantsData[i] = $scope.dataDaily[1][i].y;
+		}
+
+		return rantsData.reduce(function(a, b) {
+			return Math.max(a, b);
+		});
+	};
+
+	$scope.getTotalDonation = function () {
+		var monthDiff = function(d1, d2) {
+			var months;
+			months = (d2.getFullYear() - d1.getFullYear()) * 12;
+			months -= d1.getMonth() + 1;
+			months += d2.getMonth();
+			return months <= 0 ? 0 : months;
+		};
+
+		var donationPerMonth = 2;
+		var member_since = $scope.userinfo.start_time * 1000;
+
+		return monthDiff(new Date(member_since), new Date()) * donationPerMonth;
+	};
+
 	$scope.userinfo = {
 		devrant_id: 0,
 		username: "Loading...",
 		start_time: false,
+		created_time: false,
 		avatar_url: "",
 		avatar_big_url: "",
 		avatar_bg: "d55161",
@@ -100,12 +150,13 @@ app.controller('UserController', function ($scope, $location, $routeParams, $htt
 			});
 		} else {
 			if(response.data.reason == "User not found") {
-				$location.path("/userNotFound");
+				$location.path("/userNotFound/" + $routeParams.username);
 			} else {
 				$scope.userinfo = {
 					devrant_id: 0,
 					username: "Error",
 					start_time: false,
+					created_time: false,
 					avatar_url: "",
 					avatar_big_url: "",
 					avatar_bg: "d55161",
