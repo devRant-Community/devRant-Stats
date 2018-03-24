@@ -8,7 +8,6 @@ app.controller('NotFoundController', function ($scope, $location, $http, $routeP
 			if(addUser) {
 				$http.get('https://skayo.2ix.de/api/requestAddUser.php?username=' + $routeParams.username).then(function() {
 					$location.path("/");
-					$scope.$apply();
 				});
 			} else {
 				$location.path("/");
