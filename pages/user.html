@@ -175,6 +175,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Total Score in last 30 days</h4>
 						<p class="card-text stat-number" ng-if="dataTotal">{{getTotalScore()}}</p>
+						<p class="card-text stat-number" ng-if="!dataTotal">No data</p>
 					</div>
 				</div>
 			</div>
@@ -183,6 +184,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Total Rants in last 30 days</h4>
 						<p class="card-text stat-number" ng-if="dataTotal">{{getTotalRants()}}</p>
+						<p class="card-text stat-number" ng-if="!dataTotal">No data</p>
 					</div>
 				</div>
 			</div>
@@ -193,6 +195,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Most ++ in one day in the last 30 days</h4>
 						<p class="card-text stat-number" ng-if="dataDaily">{{mostLikesInOneDay()}}</p>
+						<p class="card-text stat-number" ng-if="!dataDaily">No data</p>
 					</div>
 				</div>
 			</div>
@@ -201,6 +204,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Most Rants in one day in the last 30 days</h4>
 						<p class="card-text stat-number" ng-if="dataDaily">{{mostRantsInOneDay()}}</p>
+						<p class="card-text stat-number" ng-if="!dataDaily">No data</p>
 					</div>
 				</div>
 			</div>
