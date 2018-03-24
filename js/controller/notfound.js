@@ -5,7 +5,7 @@ app.controller('NotFoundController', function ($scope, $location, $http, $routeP
 		setTimeout(function (){
 			var addUser = confirm("Do you want to send a request for the user to be added?");
 
-			if(addUser) {
+			if(addUser && $routeParams.username !== undefined) {
 				$http.get('https://skayo.2ix.de/api/requestAddUser.php?username=' + $routeParams.username).then(function() {
 					$location.path("/");
 				});
