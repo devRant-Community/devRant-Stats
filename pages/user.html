@@ -270,7 +270,7 @@
 			<div class="card-body">
 				<h4 class="card-title">Latest Rant</h4>
 				<div class="card-text text-center">
-					<a ng-href="{{userinfo.latest_rant}}" title="Go to rant" target="_blank"><img ng-src="{{userinfo.latest_rant}}image.png" alt="Latest Rant" class="img-fluid rounded"></a>
+					<a ng-href="{{userinfo.latest_rant}}" title="Go to rant" target="_blank"><img ng-if="userinfo.latest_rant" ng-src="{{userinfo.latest_rant}}image.png" alt="Latest Rant" class="img-fluid rounded"></a>
 					<span ng-if="!userinfo.latest_rant">{{userinfo.latest_rant_error}}</span>
 				</div>
 			</div>
@@ -285,6 +285,7 @@
 						<div class="col-md-9 col-centered">
 							<img ng-src="https://generator.devBanner.center/banner?username={{devBanner.username}}&subtext={{devBanner.subtext}}"
 							     alt="devBanner"
+							     ng-if="devBanner.username"
 							     class="img-fluid rounded">
 						</div>
 						<div class="col-md-9 col-centered" id="bannerInput">
