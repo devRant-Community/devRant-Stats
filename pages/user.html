@@ -258,7 +258,7 @@
 							<div class="card-body">
 								<h4 class="card-title">Big Avatar</h4>
 								<p class="card-text text-center">
-									<img ng-src="https://avatars.devrant.com/{{userinfo.avatar_big_url}}" alt="Big Avatar" class="img-fluid rounded">
+									<img ng-if="userinfo.avatar_big_url" ng-src="https://avatars.devrant.com/{{userinfo.avatar_big_url}}" alt="Big Avatar" class="img-fluid rounded">
 								</p>
 							</div>
 						</div>
