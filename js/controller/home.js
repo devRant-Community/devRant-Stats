@@ -39,8 +39,9 @@ app.controller('HomeController', function ($scope, $location, $http) {
 		$location.path('/user/' + $scope.search);
 	};
 
-	$scope.startSearchAutocomplete = function() {
-		$location.path('/user/' + $scope.search + $scope.usernameAutocomplete.post);
+	$scope.doAutocomplete = function() {
+		$scope.search = $scope.usernameAutocomplete.pre + $scope.usernameAutocomplete.post;
+		$scope.autocompleteHidden = true;
 	};
 
 	$scope.searchUsername = function() {
