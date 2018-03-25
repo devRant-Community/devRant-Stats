@@ -4,6 +4,12 @@
 		<h1 id="header-title">devRant-Stats</h1>
 		<div id="header-search">
 			<div class="input-group" id="searchbar">
+				<div class="dropdown">
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="user-autocomplete" ng-show="search != ''" ng-hide="autocompleteHidden">
+						<a class="dropdown-item" href="#" ng-click="startSearchAutocomplete()"><b>{{usernameAutocomplete.pre}}</b><span>{{usernameAutocomplete.post}}</span></a>
+					</div>
+				</div>
+
 				<input type="text"
 				       id="search"
 				       class="form-control"
@@ -11,7 +17,10 @@
 				       aria-label="Search for user..."
 				       maxlength="15"
 				       ng-model="search"
-				       ng-keypress="onSearchEnter($event)">
+				       autocomplete="off"
+				       ng-keyup="searchUsername()"
+				       ng-keypress="($event.charCode==13) ? startSearch() : return">
+
 				<span class="input-group-btn">
 					<button class="btn button-red" type="button" ng-click="startSearch()">Go!</button>
 				</span>

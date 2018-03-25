@@ -224,3 +224,28 @@ a, a:hover, a:active, a:visited {
 #bannerSubtext {
 	margin-top: -1px;
 }
+
+#user-autocomplete {
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	margin-top: -1px;
+	border-top-color: lightgray;
+	display: block;
+}
+
+.dropdown-item  {
+	text-decoration: none;
+}
+
+.dropdown-item span {
+	color: grey;
+}
+
+.dropdown-item:active span {
+	color: white;
+}
+
+#search {
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+}
