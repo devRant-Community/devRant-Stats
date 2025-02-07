@@ -1,0 +1,8 @@
+{
+	"allUsernames": "SELECT username FROM drs_users",
+	"rank": "SELECT devrant_id, {type} FROM drs_users ORDER BY rants DESC",
+	"info": "SELECT * from drs_users WHERE devrant_id='{id}'",
+	"stats": "SELECT * FROM drs_stats WHERE devrant_id='{id}'",
+	"add": "INSERT INTO drs_users (devrant_id, username, start_time, created_time, avatar_url, avatar_bg, score, rants, dpp) VALUES ({devrant_id}, '{username}', 0, {created_time}, '{avatar_url}', '{avatar_bg}', {score}, {rants}, 0)",
+	"exists": "SELECT username FROM drs_users WHERE devrant_id='{id}'"
+}

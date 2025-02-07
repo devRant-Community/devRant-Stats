@@ -1,0 +1,3 @@
+{
+	"global": "SELECT COUNT(*) as users, (SELECT username FROM drs_users ORDER BY start_time DESC LIMIT 1) as newest, (SELECT username FROM drs_users ORDER BY score DESC LIMIT 1) as best, SUM(score) as scoreSum, (SELECT COUNT(*) FROM drs_users WHERE dpp=1) as supporters, SUM(rants) as rantsSum FROM drs_users"
+}
